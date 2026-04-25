@@ -1,0 +1,325 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #cbd5e1;
+
+  --color-debt: #ef4444;
+  /* Rojo para deuda */
+  --color-pay: #10b981;
+  /* Verde para pago */
+  --color-envase: #3b82f6;
+  /* Azul para envases */
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --border-radius-sm: 0.5rem;
+  --border-radius-lg: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+
+    --color-debt: #f87171;
+    --color-pay: #34d399;
+    --color-envase: #60a5fa;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+/* Buttons */
+button {
+  font-family: var(--font-family);
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  /* Tamaños mínimos para tablet touch area */
+  min-height: 48px;
+  min-width: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+button:active {
+  opacity: 0.7;
+}
+
+.btn-primary {
+  background-color: var(--color-envase);
+  color: white;
+}
+
+.btn-debt {
+  background-color: var(--color-debt);
+  color: white;
+}
+
+.btn-pay {
+  background-color: var(--color-pay);
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-primary);
+}
+
+.btn-icon {
+  border-radius: 50%;
+  padding: 0.5rem;
+  min-height: 48px;
+  min-width: 48px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="number"] {
+  font-family: var(--font-family);
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.125rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  min-height: 48px;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-envase);
+}
+
+/* Layout */
+.app-header {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content {
+  padding: 1rem;
+  flex: 1;
+}
+
+/* Card */
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 1rem;
+  border: 1px solid var(--border-color);
+}
+
+/* Grid Envases */
+.envases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.envase-item {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.envase-title {
+  font-weight: 600;
+  color: var(--color-envase);
+  font-size: 1.125rem;
+}
+
+.envase-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.envase-count {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.envase-control-btn {
+  font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.envase-control-btn.minus {
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--color-pay);
+  color: var(--color-pay);
+}
+
+.envase-control-btn.plus {
+  background-color: var(--bg-secondary);
+  border: 2px solid var(--color-debt);
+  color: var(--color-debt);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: var(--shadow-md);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-actions button {
+  flex: 1;
+}
+
+.client-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.client-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.client-list-item:active {
+  transform: scale(0.98);
+}
+
+.money-display {
+  font-family: monospace;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.money-positive {
+  color: var(--color-pay);
+}
+
+.money-negative {
+  color: var(--color-debt);
+}
+
+.money-neutral {
+  color: var(--text-primary);
+}
+
+.money-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.money-actions button {
+  flex: 1;
+  font-size: 1.25rem;
+  padding: 1rem;
+}
